@@ -9,7 +9,7 @@ export default function Home() {
         <title>Nicolhetti - Links</title>
         <meta
           name="description"
-          content="All my Links on https://nicolhetti.github.io/"
+          content="All my Links on https://links.nicolhetti.com.ar/"
         />
         <meta name="author" content="Nicolhetti" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -92,10 +92,10 @@ const links = [
     label: "M3U8 Player",
   },
   {
-    url: "https://ird.nicolhetti.com.ar/",
+    url: "https://github.com/Nicolhetti/DSQProcess",
     icon: "/images/icons/generic-website.svg",
     alt: "Website Icon",
-    label: "Ig Reels Downloader",
+    label: "DSQProcess",
   },
   {
     url: "https://ctc.nicolhetti.com.ar/",
