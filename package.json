@@ -6,15 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "format": "prettier -c ./",
-    "format:fix": "prettier -w ./",
-    "export": "next export",
-    "deploy": "next build && gh-pages -d out"
+    "format:fix": "prettier -w ./"
   },
   "dependencies": {
     "next": "^15.5.3",
-    "prettier": "^3.6.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -22,6 +19,6 @@
     "@eslint/eslintrc": "^3",
     "eslint": "^9.36.0",
     "eslint-config-next": "^15.5.3",
-    "gh-pages": "^6.3.0"
+    "prettier": "^3.6.2"
   }
 }
