@@ -1,0 +1,172 @@
+@font-face {
+  font-display: swap;
+  font-family: "Press Gothic";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../fonts/pressgothic.otf");
+}
+
+/* Configuración base del tema The Last of Us */
+body {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: "Press Gothic", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 100%;
+}
+
+/* Video background específico */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container - alineado a la izquierda como el menú de TLOU */
+.container {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  float: left;
+}
+
+.content-wrapper {
+  margin-top: 8%;
+}
+
+/* Audio Message - estilo TLOU */
+.audio-message {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Profile Header - estructura original */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.profile-header .avatar {
+  object-fit: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+/* Typography - estilo TLOU */
+.profile-name {
+  font-family: "Press Gothic", sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  letter-spacing: 3px;
+  text-align: center;
+  margin: 10px 0;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.profile-description {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.avatar {
+  border: 3px solid #5b5c1e66;
+  translate: 0 -8px;
+  box-shadow:
+    0 0 20px rgba(251, 247, 176, 0.8),
+    inset 0 0 20px rgba(91, 92, 30, 0.4);
+  filter: brightness(1.2) contrast(1.3);
+  transition: all 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 30px rgba(251, 247, 176, 0.8),
+    inset 0 0 30px rgba(91, 92, 30, 0.4);
+}
+
+/* Links Container - como tu original */
+.links-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+  gap: 10px;
+}
+
+/* Link Buttons - estilo original TLOU */
+.link-button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px;
+  letter-spacing: 0.8px;
+  outline: none;
+  cursor: pointer;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+  filter: brightness(60%);
+}
+
+.link-button:hover,
+.link-button:focus {
+  color: #ffffff;
+  outline: none;
+  filter: brightness(100%);
+  transform: translateX(2rem);
+}
+
+/* Icons - estilo original */
+.link-icon {
+  padding: 0px 8px 3.5px 0px;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+/* Scrollbar - invisible como el original */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+/* Media queries originales */
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0;
+  }
+}
+
+@media (min-width: 550px) {
+  .container {
+    width: 80%;
+  }
+
+  .profile-name {
+    font-size: 48px;
+    line-height: 96px;
+  }
+}

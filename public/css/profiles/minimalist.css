@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+/* Tema Minimalista - Clean & Simple */
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background-color: #fafafa;
+  color: #2c3e50;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Background overlay sutil */
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+/* Container con sombra sutil */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  margin-top: 5vh;
+  max-width: 400px;
+}
+
+.content-wrapper {
+  padding: 3rem 2rem;
+}
+
+/* Profile Header */
+.profile-name {
+  color: #2c3e50;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0;
+  text-shadow: none;
+}
+
+.profile-description {
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: normal;
+  text-shadow: none;
+  margin: 0.5rem 0 2rem 0;
+  line-height: 1.5;
+}
+
+.avatar {
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 80px;
+  height: 80px;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Link Buttons - Estilo Minimalista */
+.link-button {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 1rem 1.25rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.05),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.link-button:hover {
+  background: #ffffff;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.02);
+  color: #6366f1;
+}
+
+.link-button:hover::before {
+  left: 100%;
+}
+
+.link-button:active {
+  transform: translateY(-1px);
+}
+
+/* Focus states accesibles */
+.link-button:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-color: #6366f1;
+}
+
+.link-icon {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  filter: none;
+}
+
+.link-button:hover .link-icon {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.link-label {
+  font-weight: 500;
+}
+
+/* Links container con espaciado elegante */
+.links-container {
+  gap: 0.75rem;
+}
+
+/* Efectos sutiles de animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-button {
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.link-button:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.link-button:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.link-button:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.link-button:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.link-button:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.link-button:nth-child(n + 6) {
+  animation-delay: 0.6s;
+}
+
+/* Header animation */
+.profile-header {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.profile-description {
+  animation: fadeInUp 0.7s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    margin: 2vh 1rem;
+    border-radius: 20px;
+  }
+
+  .content-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .link-button {
+    font-size: 0.85rem;
+    padding: 0.875rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 420px;
+  }
+
+  .link-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Subtle parallax effect */
+  .profile-header {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+  }
+
+  .container:hover .profile-header {
+    transform: translateZ(5px);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+  }
+
+  .background-container::before {
+    background: rgba(15, 23, 42, 0.9);
+  }
+
+  .container {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+
+  .profile-name {
+    color: #f1f5f9;
+  }
+
+  .profile-description {
+    color: #94a3b8;
+  }
+
+  .avatar {
+    border-color: rgba(71, 85, 105, 0.5);
+  }
+
+  .link-button {
+    background: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
+    border-color: rgba(71, 85, 105, 0.5);
+  }
+
+  .link-button:hover {
+    background: rgba(71, 85, 105, 0.9);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #a5b4fc;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
