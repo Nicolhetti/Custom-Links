@@ -152,6 +152,18 @@ const profiles = {
     },
     links: [
       {
+        url: "https://discord.gg/42ZwcQs68N",
+        icon: "/images/icons/discord.svg",
+        alt: "Discord Logo",
+        label: "Discord",
+      },
+      {
+        url: "https://github.com/abmerse",
+        icon: "/images/icons/github.svg",
+        alt: "GitHub Logo",
+        label: "GitHub",
+      },
+      {
         url: "https://www.instagram.com/alejoferreiro_/",
         icon: "/images/icons/instagram.svg",
         alt: "Instagram Logo",
@@ -170,16 +182,10 @@ const profiles = {
         label: "Twitch",
       },
       {
-        url: "https://github.com/abmerse",
-        icon: "/images/icons/github.svg",
-        alt: "GitHub Logo",
-        label: "GitHub",
-      },
-      {
-        url: "https://discord.gg/42ZwcQs68N",
-        icon: "/images/icons/discord.svg",
-        alt: "Discord Logo",
-        label: "Discord",
+        url: "https://www.youtube.com/@abmerse",
+        icon: "/images/icons/youtube.svg",
+        alt: "YouTube Logo",
+        label: "YouTube",
       },
     ],
   },
