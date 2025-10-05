@@ -20,14 +20,14 @@ export default function ProfilePage({ profile }) {
     const handleMouseEnter = () => {
       if (hoverSound) {
         hoverSound.currentTime = 0;
-        hoverSound.play().catch(() => {});
+        hoverSound.play().catch(() => { });
       }
     };
 
     const handleClick = () => {
       if (clickSound) {
         clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
+        clickSound.play().catch(() => { });
       }
     };
 
@@ -97,6 +97,12 @@ export default function ProfilePage({ profile }) {
         ) : (
           <div className="background-media background-fallback" />
         )}
+        {profile.backgroundVideo && (
+          <div id="audioMessage" className="audio-message">
+            🔊 Click to Unmute
+          </div>
+        )}
+
       </div>
 
       {/* Container */}
@@ -108,12 +114,6 @@ export default function ProfilePage({ profile }) {
         }
       >
         <div className="content-wrapper">
-          {profile.backgroundVideo && (
-            <div id="audioMessage" className="audio-message">
-              🔊 Click to Unmute
-            </div>
-          )}
-
           {/* Profile Header */}
           <div className="profile-header">
             <Image
