@@ -204,7 +204,7 @@ const profiles = {
 
   pablo: {
     name: "Pablo",
-    description: "Hola soy Pablo",
+    description: null,
     avatar: "https://i.imgur.com/RM9uRG6.jpeg",
     backgroundVideo:
       "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Pablo.mp4",
