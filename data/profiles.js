@@ -189,6 +189,31 @@ const profiles = {
       },
     ],
   },
+  pablo: {
+    name: "Pablo",
+    description: "Hola soy Pablo",
+    avatar: "https://i.imgur.com/RM9uRG6.jpeg",
+    backgroundVideo: "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Pablo.mp4",
+    cssFile: "/css/profiles/pablo.css",
+    sounds: {
+      hover: "/sounds/abmerse_hover.wav",
+      click: "/sounds/abmerse_click.wav",
+    },
+    links: [
+      {
+        url: "https://steamcommunity.com/profiles/76561199815368005",
+        icon: "/images/icons/steam.svg",
+        alt: "Steam Logo",
+        label: "Steam",
+      },
+      {
+        url: "https://www.youtube.com/@pablito_fvb",
+        icon: "/images/icons/youtube.svg",
+        alt: "YouTube Logo",
+        label: "YouTube",
+      },
+    ],
+  },
 };
 
 export default profiles;
