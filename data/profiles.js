@@ -1,21 +1,30 @@
+/**
+ * Configuración de perfiles de usuario
+ * Cada perfil puede tener su propia personalización visual y sonidos
+ */
+
 const profiles = {
   nicolhetti: {
     name: "Nicolhetti",
-    description: "Growing amateur developer and 🏴‍☠️ 🤫",
+    description: "If buying isn't owning, piracy isn't stealing.",
     avatar:
       "https://cdn.discordapp.com/avatars/388115586112159756/a_de536317665d985050726246753b0e7c.gif?size=256",
-    backgroundVideo: "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Nicolhetti.mp4",
+    backgroundVideo:
+      "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Nicolhetti.mp4",
+    backgroundImage: null,
     cssFile: "/css/profiles/nicolhetti.css",
     sounds: {
       hover: "/sounds/nicolhetti_hover.mp3",
       click: "/sounds/nicolhetti_click.mp3",
     },
+    theme: "the-last-of-us",
     links: [
       {
         url: "https://www.nicolhetti.com.ar/",
         icon: "/images/icons/generic-website.svg",
         alt: "Website Icon",
         label: "NicolhettiGames",
+        ariaLabel: "Visitar NicolhettiGames",
       },
       {
         url: "https://github.com/Nicolhetti/DSQProcess",
@@ -144,12 +153,15 @@ const profiles = {
     name: "Abmerse",
     description: "Amateur developer",
     avatar: "https://avatars.githubusercontent.com/u/232257409?v=4",
-    backgroundVideo: "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Abmerse.mp4",
+    backgroundVideo:
+      "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Abmerse.mp4",
+    backgroundImage: null,
     cssFile: "/css/profiles/abmerse.css",
     sounds: {
       hover: "/sounds/abmerse_hover.wav",
       click: "/sounds/abmerse_click.wav",
     },
+    theme: "hotline-miami",
     links: [
       {
         url: "https://discord.gg/42ZwcQs68N",
@@ -189,16 +201,20 @@ const profiles = {
       },
     ],
   },
+
   pablo: {
     name: "Pablo",
     description: "Hola soy Pablo",
     avatar: "https://i.imgur.com/RM9uRG6.jpeg",
-    backgroundVideo: "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Pablo.mp4",
+    backgroundVideo:
+      "https://huggingface.co/spaces/Nicolhetti-Projects/Nicolhetti-Archives/resolve/main/Archive/bg00Pablo.mp4",
+    backgroundImage: null,
     cssFile: "/css/profiles/pablo.css",
     sounds: {
       hover: "/sounds/abmerse_hover.wav",
       click: "/sounds/abmerse_click.wav",
     },
+    theme: "custom",
     links: [
       {
         url: "https://steamcommunity.com/profiles/76561199815368005",
@@ -215,5 +231,40 @@ const profiles = {
     ],
   },
 };
+
+/**
+ * Validar estructura de perfil (útil para desarrollo)
+ */
+export function validateProfile(profile) {
+  const required = ["name", "description", "avatar", "links"];
+  const missing = required.filter((field) => !profile[field]);
+
+  if (missing.length > 0) {
+    console.warn(`Perfil incompleto. Faltan campos: ${missing.join(", ")}`);
+    return false;
+  }
+
+  if (!Array.isArray(profile.links) || profile.links.length === 0) {
+    console.warn("El perfil debe tener al menos un enlace");
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * Obtener lista de usernames disponibles
+ */
+export function getAvailableUsernames() {
+  return Object.keys(profiles);
+}
+
+/**
+ * Obtener perfil por username (case-insensitive)
+ */
+export function getProfile(username) {
+  if (!username) return null;
+  return profiles[username.toLowerCase()] || null;
+}
 
 export default profiles;

@@ -1,44 +1,29 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import profiles from "../data/profiles";
 import ProfilePage from "../components/ProfilePage";
 
-export default function UserProfile() {
+export default function UserProfile({ profile, username }) {
   const router = useRouter();
-  const { username } = router.query;
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!username) return;
-
-    const userProfile = profiles[username.toLowerCase()];
-
-    if (userProfile) {
-      setProfile({ ...userProfile, username: username.toLowerCase() });
-    } else {
-      router.push("/404");
-    }
-
-    setLoading(false);
-  }, [username, router]);
-
-  if (loading) {
+  // Fallback durante la generación estática
+  if (router.isFallback) {
     return (
       <div className="loading-container">
-        <div className="loading-spinner">Cargando...</div>
+        <div className="loading-spinner">Cargando perfil...</div>
       </div>
     );
   }
 
+  // Si no hay perfil, Next.js manejará el 404
   if (!profile) {
     return null;
   }
 
-  return <ProfilePage profile={profile} />;
+  return <ProfilePage profile={{ ...profile, username }} />;
 }
 
 export async function getStaticPaths() {
+  // Generar paths para todos los perfiles excepto nicolhetti (que está en index)
   const usernames = Object.keys(profiles).filter(
     (username) => username !== "nicolhetti"
   );
@@ -49,14 +34,15 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: false, // Si quieres generar dinámicamente, cambia a 'blocking'
   };
 }
 
 export async function getStaticProps({ params }) {
   const { username } = params;
-  const profile = profiles[username];
+  const profile = profiles[username.toLowerCase()];
 
+  // Si no existe el perfil, mostrar 404
   if (!profile) {
     return {
       notFound: true,
@@ -65,7 +51,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      profile: { ...profile, username },
+      profile,
+      username: username.toLowerCase(),
     },
+    // Revalidar cada hora (opcional, para ISR)
+    // revalidate: 3600,
   };
 }

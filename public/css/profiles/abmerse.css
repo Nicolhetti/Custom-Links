@@ -1,199 +1,316 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+/* ==========================================================================
+   HOTLINE MIAMI THEME - Abmerse Profile
+   Colores neón, estética retro 80s, vibes violentos y psicodélicos
+   ========================================================================== */
 
-/* Base del tema Hotline Miami */
+@import url("../base_new.css");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* ==========================================================================
+      VARIABLES Y CONFIGURACIÓN BASE
+      ========================================================================== */
+
+:root {
+  --hm-pink: #ff2a6d;
+  --hm-purple: #d62ad0;
+  --hm-cyan: #05d9e8;
+  --hm-yellow: #fff64f;
+  --hm-orange: #ff6c11;
+  --hm-dark: #1a0524;
+  --hm-darker: #0d0114;
+}
+
 body {
-  background: #000;
-  font-family: "Orbitron", monospace;
-  overflow-x: hidden;
-  color: #00ffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--hm-cyan);
+  background: var(--hm-dark);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Video background específico */
-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* ==========================================================================
+      BACKGROUND - Efecto CRT y escaneado
+      ========================================================================== */
 
-/* Container centrado para este perfil */
-.container {
-  max-width: 500px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Efectos de fondo neon */
-/* .background-container::before {
+.background-container::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(255, 0, 150, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(0, 255, 255, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 80%,
-      rgba(255, 0, 150, 0.2) 0%,
-      transparent 50%
-    );
-  z-index: 1;
-  pointer-events: none;
-} */
-
-/* Filtro para el video de fondo */
-/* .background-media {
-  filter: brightness(0.3) contrast(1.2);
-} */
-
-/* Content wrapper con bordes neon */
-/* .content-wrapper {
-  position: relative;
-  z-index: 2;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #00ffff;
-  border-radius: 0;
-  padding: 40px 30px;
-  box-shadow:
-    0 0 20px rgba(0, 255, 255, 0.5),
-    inset 0 0 20px rgba(255, 0, 150, 0.1);
-  backdrop-filter: blur(10px);
   width: 100%;
-  margin-top: 0;
-} */
-
-/* Profile Header centrado */
-.profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 2rem;
-  text-align: center;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+  animation: scanlines 8s linear infinite;
 }
 
-/* Nombre con efectos neon */
-.profile-name {
-  font-family: "Orbitron", monospace;
-  font-weight: 900;
-  font-size: 2.5rem;
-  color: #00ffff;
-  text-shadow:
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 30px #00ffff,
-    2px 2px 0px #ff0096;
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* Overlay de color neón */
+.background-container::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 42, 109, 0.1) 0%,
+    rgba(214, 42, 208, 0.2) 50%,
+    rgba(13, 1, 20, 0.8) 100%
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+  animation: colorPulse 4s ease-in-out infinite;
+}
+
+@keyframes colorPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+video.background-media {
+  filter: saturate(1.5) contrast(1.2) hue-rotate(-10deg);
+}
+
+/* ==========================================================================
+      AUDIO MESSAGE - Estilo VHS
+      ========================================================================== */
+
+.audio-message {
+  background: linear-gradient(135deg, var(--hm-pink), var(--hm-purple));
+  color: white;
+  border: 2px solid var(--hm-cyan);
+  box-shadow:
+    0 0 10px var(--hm-cyan),
+    0 0 20px var(--hm-pink),
+    inset 0 0 10px rgba(255, 42, 109, 0.3);
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  margin: 0;
-  animation: neonFlicker 2s infinite alternate;
-  position: relative;
+  letter-spacing: 1px;
+  animation: glitchPulse 3s ease-in-out infinite;
 }
 
-@keyframes neonFlicker {
+@keyframes glitchPulse {
   0%,
   100% {
     text-shadow:
-      0 0 10px #00ffff,
-      0 0 20px #00ffff,
-      0 0 30px #00ffff,
-      2px 2px 0px #ff0096;
+      2px 0 var(--hm-cyan),
+      -2px 0 var(--hm-yellow);
   }
   50% {
     text-shadow:
-      0 0 5px #00ffff,
-      0 0 10px #00ffff,
-      0 0 15px #00ffff,
-      2px 2px 0px #ff0096;
+      -2px 0 var(--hm-cyan),
+      2px 0 var(--hm-pink);
   }
 }
 
-/* Descripción */
-.profile-description {
-  font-family: "Orbitron", monospace;
-  color: #ff0096;
-  font-size: 1.1rem;
-  text-shadow: 0 0 10px #ff0096;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
+/* ==========================================================================
+      CONTAINER - Centrado con efecto glitch
+      ========================================================================== */
+
+.container {
+  max-width: 500px;
+  position: relative;
+  z-index: 5;
 }
 
-/* Avatar con efectos neon */
+.content-wrapper {
+  animation: fadeInGlitch 1s ease-out;
+  position: relative;
+}
+
+@keyframes fadeInGlitch {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(-3px);
+  }
+  60% {
+    transform: translateX(3px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* ==========================================================================
+      PROFILE HEADER - Avatar con efecto neón
+      ========================================================================== */
+
+.profile-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
 .avatar {
-  border: 3px solid #00ffff;
+  width: 96px;
+  height: 96px;
+  border: 4px solid var(--hm-pink);
   box-shadow:
-    0 0 20px rgba(0, 255, 255, 0.8),
-    inset 0 0 20px rgba(255, 0, 150, 0.3);
-  filter: brightness(1.2) contrast(1.3);
-  width: 64px;
-  height: 64px;
-  transition: all 0.3s ease;
+    0 0 20px var(--hm-pink),
+    0 0 40px var(--hm-purple),
+    0 0 60px var(--hm-cyan),
+    inset 0 0 20px rgba(255, 42, 109, 0.5);
+  filter: saturate(1.3) contrast(1.1);
+  animation: neonPulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid var(--hm-cyan);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ringPulse 2s ease-out infinite;
+}
+
+@keyframes neonPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px var(--hm-pink),
+      0 0 40px var(--hm-purple),
+      0 0 60px var(--hm-cyan);
+  }
+  50% {
+    box-shadow:
+      0 0 30px var(--hm-pink),
+      0 0 60px var(--hm-purple),
+      0 0 90px var(--hm-cyan);
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
 }
 
 .avatar:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 30px rgba(0, 255, 255, 1),
-    inset 0 0 30px rgba(255, 0, 150, 0.4);
+  transform: scale(1.1) rotate(5deg);
+  filter: saturate(1.5) contrast(1.2) hue-rotate(15deg);
 }
 
-/* Links container vertical */
+/* ==========================================================================
+      TYPOGRAPHY - Estilo retro pixelado
+      ========================================================================== */
+
+.profile-name {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.8rem;
+  color: var(--hm-pink);
+  text-shadow:
+    3px 3px 0 var(--hm-purple),
+    6px 6px 0 var(--hm-cyan),
+    0 0 20px var(--hm-pink);
+  margin: 1rem 0;
+  letter-spacing: 2px;
+  animation: textGlitch 5s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes textGlitch {
+  0%,
+  90%,
+  100% {
+    transform: translate(0, 0);
+  }
+  92% {
+    transform: translate(-2px, 1px);
+  }
+  94% {
+    transform: translate(2px, -1px);
+  }
+  96% {
+    transform: translate(-1px, 2px);
+  }
+}
+
+.profile-description {
+  color: var(--hm-cyan);
+  font-size: 11px;
+  text-shadow:
+    0 0 10px var(--hm-cyan),
+    2px 2px 0 var(--hm-purple);
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+      LINK BUTTONS - Estilo arcade con hover agresivo
+      ========================================================================== */
+
 .links-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
+  gap: 16px;
 }
 
-/* Botones de enlaces */
 .link-button {
   background: linear-gradient(
-    45deg,
-    rgba(0, 255, 255, 0.1),
-    rgba(255, 0, 150, 0.1)
+    135deg,
+    rgba(255, 42, 109, 0.2) 0%,
+    rgba(214, 42, 208, 0.2) 100%
   );
-  border: 2px solid #ff0096;
-  color: #00ffff;
-  font-family: "Orbitron", monospace;
-  font-weight: 700;
+  border: 3px solid var(--hm-pink);
+  color: var(--hm-cyan);
+  padding: 16px 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 18px 25px;
-  border-radius: 0;
+  letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow:
-    0 0 15px rgba(255, 0, 150, 0.3),
-    inset 0 0 15px rgba(0, 255, 255, 0.1);
-  width: 100%;
-  max-width: 350px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
+    0 0 10px var(--hm-pink),
+    inset 0 0 10px rgba(255, 42, 109, 0.1);
 }
 
-/* Efecto de sweep */
+/* Efecto de rayo al fondo */
 .link-button::before {
   content: "";
   position: absolute;
@@ -204,193 +321,197 @@ video {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(5, 217, 232, 0.3),
     transparent
   );
-  transition: left 0.5s;
+  transition: left 0.5s ease;
 }
 
-.link-button:hover {
-  border-color: #00ffff;
-  color: #ff0096;
-  text-shadow: 0 0 10px #ff0096;
-  box-shadow:
-    0 0 25px rgba(0, 255, 255, 0.6),
-    inset 0 0 25px rgba(255, 0, 150, 0.2);
-  transform: translateY(-3px) scale(1.02);
-  filter: brightness(1.2);
+.link-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 42, 109, 0.1) 10px,
+    rgba(255, 42, 109, 0.1) 20px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.link-button:hover::before {
+.link-button:hover::before,
+.link-button:focus::before {
   left: 100%;
 }
 
-.link-button:active {
-  transform: translateY(-1px) scale(1.01);
+.link-button:hover::after,
+.link-button:focus::after {
+  opacity: 1;
 }
 
-/* Iconos de enlaces */
+.link-button:hover,
+.link-button:focus {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 42, 109, 0.4) 0%,
+    rgba(214, 42, 208, 0.4) 100%
+  );
+  border-color: var(--hm-cyan);
+  color: var(--hm-yellow);
+  transform: translateX(5px) scale(1.02);
+  box-shadow:
+    0 0 20px var(--hm-cyan),
+    0 0 40px var(--hm-pink),
+    inset 0 0 20px rgba(5, 217, 232, 0.2);
+  text-shadow:
+    0 0 10px var(--hm-yellow),
+    2px 2px 0 var(--hm-orange);
+}
+
+.link-button:active {
+  transform: scale(0.98);
+  box-shadow:
+    0 0 10px var(--hm-pink),
+    inset 0 0 20px rgba(255, 42, 109, 0.5);
+}
+
+/* Glitch al hacer hover */
+.link-button:hover {
+  animation: buttonGlitch 0.3s ease-in-out;
+}
+
+@keyframes buttonGlitch {
+  0%,
+  100% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(3px) translateY(-1px);
+  }
+  50% {
+    transform: translateX(7px) translateY(1px);
+  }
+  75% {
+    transform: translateX(4px) translateY(-1px);
+  }
+}
+
 .link-icon {
-  filter: brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(1000%)
-    hue-rotate(180deg) brightness(100%) contrast(101%);
+  filter: drop-shadow(0 0 5px var(--hm-cyan));
   transition: filter 0.3s ease;
-  margin-right: 15px;
-  flex-shrink: 0;
 }
 
 .link-button:hover .link-icon {
-  filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7151%)
-    hue-rotate(318deg) brightness(90%) contrast(135%);
+  filter: drop-shadow(0 0 10px var(--hm-yellow))
+    drop-shadow(0 0 20px var(--hm-orange));
+  animation: iconSpin 0.5s ease-in-out;
 }
 
-/* Audio message */
-.audio-message {
-  background: rgba(0, 0, 0, 0.9);
-  border: 1px solid #00ffff;
-  color: #00ffff;
-  font-family: "Orbitron", monospace;
-  text-shadow: 0 0 5px #00ffff;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-}
-
-/* Efecto glitch para el nombre */
-.profile-name::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  text-shadow: -2px 0 #ff0096;
-  top: 0;
-  color: #00ffff;
-  background: transparent;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: glitch-anim 2s infinite linear alternate-reverse;
-  z-index: -1;
-}
-
-@keyframes glitch-anim {
-  0% {
-    clip: rect(42px, 9999px, 44px, 0);
-  }
-  5% {
-    clip: rect(12px, 9999px, 59px, 0);
-  }
-  10% {
-    clip: rect(48px, 9999px, 29px, 0);
-  }
-  15% {
-    clip: rect(42px, 9999px, 73px, 0);
-  }
-  20% {
-    clip: rect(63px, 9999px, 27px, 0);
-  }
-  25% {
-    clip: rect(34px, 9999px, 55px, 0);
-  }
-  30% {
-    clip: rect(86px, 9999px, 73px, 0);
-  }
-  35% {
-    clip: rect(20px, 9999px, 20px, 0);
-  }
-  40% {
-    clip: rect(26px, 9999px, 60px, 0);
-  }
-  45% {
-    clip: rect(25px, 9999px, 66px, 0);
+@keyframes iconSpin {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
   }
   50% {
-    clip: rect(57px, 9999px, 98px, 0);
-  }
-  55% {
-    clip: rect(5px, 9999px, 46px, 0);
-  }
-  60% {
-    clip: rect(82px, 9999px, 31px, 0);
-  }
-  65% {
-    clip: rect(54px, 9999px, 27px, 0);
-  }
-  70% {
-    clip: rect(28px, 9999px, 99px, 0);
-  }
-  75% {
-    clip: rect(45px, 9999px, 69px, 0);
-  }
-  80% {
-    clip: rect(23px, 9999px, 85px, 0);
-  }
-  85% {
-    clip: rect(54px, 9999px, 84px, 0);
-  }
-  90% {
-    clip: rect(45px, 9999px, 47px, 0);
-  }
-  95% {
-    clip: rect(37px, 9999px, 20px, 0);
-  }
-  100% {
-    clip: rect(4px, 9999px, 91px, 0);
+    transform: rotate(180deg) scale(1.2);
   }
 }
 
-/* Media queries responsivas */
+/* ==========================================================================
+      EFECTOS ADICIONALES
+      ========================================================================== */
+
+/* Ruido de fondo tipo VHS */
+.content-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 100;
+  animation: noiseMove 0.2s steps(10) infinite;
+}
+
+@keyframes noiseMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10px, -10px);
+  }
+}
+
+/* ==========================================================================
+      RESPONSIVE DESIGN
+      ========================================================================== */
+
 @media (max-width: 768px) {
   .profile-name {
-    font-size: 2rem;
-    letter-spacing: 2px;
+    font-size: 1.3rem;
   }
 
-  .content-wrapper {
-    padding: 30px 20px;
-    margin: 10px;
+  .profile-description {
+    font-size: 10px;
   }
 
   .link-button {
-    padding: 15px 20px;
-    letter-spacing: 1px;
-    max-width: 300px;
+    font-size: 10px;
+    padding: 14px 16px;
   }
 
-  .container {
-    padding: 10px;
+  .avatar {
+    width: 80px;
+    height: 80px;
   }
 }
 
 @media (max-width: 480px) {
   .profile-name {
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-  }
-
-  .profile-description {
     font-size: 1rem;
+    text-shadow:
+      2px 2px 0 var(--hm-purple),
+      4px 4px 0 var(--hm-cyan);
   }
 
   .link-button {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-
-  .content-wrapper {
-    padding: 20px 15px;
+    font-size: 9px;
   }
 }
 
-/* Scrollbar personalizado */
-::-webkit-scrollbar {
-  width: 8px;
+/* ==========================================================================
+      ACCESSIBILITY - Mantener legibilidad
+      ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.5);
-}
+/* Alto contraste */
+@media (prefers-contrast: high) {
+  .link-button {
+    border-width: 4px;
+    background: rgba(255, 42, 109, 0.5);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00ffff, #ff0096);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #ff0096, #00ffff);
+  .profile-name {
+    text-shadow:
+      3px 3px 0 black,
+      -1px -1px 0 white;
+  }
 }
