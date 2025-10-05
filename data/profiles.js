@@ -76,7 +76,7 @@ const profiles = {
       },
       {
         url: "https://kick.com/nicolhetti",
-        icon: "/images/icons/kick-alt.svg",
+        icon: "/images/icons/kick.svg",
         alt: "Kick Logo",
         label: "Kick",
       },

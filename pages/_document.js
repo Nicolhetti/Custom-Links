@@ -11,9 +11,9 @@ export default function Document() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
+        <Analytics />
       </Head>
       <body>
-        <Analytics />
         <Main />
         <NextScript />
       </body>
