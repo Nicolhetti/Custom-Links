@@ -20,7 +20,7 @@ const profiles = {
     theme: "the-last-of-us",
     links: [
       {
-        url: "https://www.nicolhetti.com.ar/",
+        url: "https://www.nicolhetti.com/",
         icon: "/images/icons/generic-website.svg",
         alt: "Website Icon",
         label: "NicolhettiGames",
@@ -33,7 +33,7 @@ const profiles = {
         label: "DSQProcess",
       },
       {
-        url: "https://lofi.nicolhetti.com.ar/",
+        url: "https://lofi.nicolhetti.com/",
         icon: "/images/icons/generic-website.svg",
         alt: "Website Icon",
         label: "Radio LoFi",
@@ -45,7 +45,7 @@ const profiles = {
         label: "M3U8 Player",
       },
       {
-        url: "https://ctc.nicolhetti.com.ar/",
+        url: "https://ctc.nicolhetti.com/",
         icon: "/images/icons/generic-website.svg",
         alt: "Website Icon",
         label: "Discord Emojis",
@@ -141,7 +141,7 @@ const profiles = {
         label: "YouTube",
       },
       {
-        url: "mailto:contacto@nicolhetti.com.ar",
+        url: "mailto:contacto@nicolhetti.com",
         icon: "/images/icons/generic-email-alt.svg",
         alt: "Email Icon",
         label: "Email",

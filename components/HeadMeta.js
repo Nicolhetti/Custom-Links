@@ -6,7 +6,7 @@ export default function HeadMeta() {
       <title>Nicolhetti - Links</title>
       <meta
         name="description"
-        content="All my Links on https://links.nicolhetti.com.ar/"
+        content="All my Links on https://links.nicolhetti.com/"
       />
       <meta name="author" content="Nicolhetti" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,4 +1,4 @@
-# links.nicolhetti.com.ar
+# links.nicolhetti.com
 
 ```bash
 npm run dev
